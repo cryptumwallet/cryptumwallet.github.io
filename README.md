@@ -1,2 +1,2 @@
-# cryptum
+# Cryptum
 Basic Bitcoin Wallet

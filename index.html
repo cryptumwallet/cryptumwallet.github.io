@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>Cryptum</title>
+<!--including bogus stuff-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="TSBW: The Simplest Bitcoin Wallet">
 <meta name="keywords" content="tsbw,simple,simplest,online,bitcoin,wallet,btc,js,browser">
@@ -9,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet"> 
 <style>
-
+/*Main Body*/
 html, body{
      width:100%;
      height:100%;
@@ -18,17 +19,21 @@ html, body{
     /*backgroundMAIN*/
      background:#f5f5f5;
 }
+/*Hyperlinks*/
  a{
      color:#000;
      text-decoration:none;
      cursor:pointer;
 }
+/*hyperlinks visited*/
  a.visited{
      color:#444;
 }
+/*hyperlink hover*/
  a:hover{
      color:#444;
 }
+/*text box*/
  input {
      height:18px;
      padding:3px 4px;
@@ -38,6 +43,7 @@ html, body{
 	 size: 430px;
 
 }
+/*login button*/
  button{
      padding:4px 12px;
      font-size:14px;
@@ -46,6 +52,7 @@ html, body{
 	 border-radius: px;
 	 font-family: 'Quicksand', sans-serif;
 }
+/*text when pressed*/
 input[type=text]:focus {
   background-color: #fff;
 }
@@ -77,12 +84,14 @@ input[type=text]:focus {
      display:none;
 	 font-family: 'Quicksand', sans-serif;
 }
+/*the WIF and login box*/
  #passphrase{
      width:350px;
 	 height: 40px;
 	 font-family: 'Quicksand', sans-serif;
 	border: 2px solid black;
 }
+/*All the bogus after the login page*/
  #to {
      width:268px;
 }
@@ -141,7 +150,7 @@ input[type=text]:focus {
 <form id=pass_form action="javascript:open_wallet();">
 	<br><input id=passphrase type=password placeholder="Passphrase or private key" title="Can also use compressed WIF key.">&nbsp;<button type=submit>Open</button><br>
 	<br><br><span id=backend></span>
-
+	<a href="generation.html">GENERATION</a>
 	<div style="position:absolute; right:12px; bottom:8px;"> <a href="test/index.html">TestNet</a></div>
 </form>
 

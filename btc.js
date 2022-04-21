@@ -113,7 +113,7 @@ btc.pk2adr = function(pk, is_script_hash)
 	
 	if(!is_script_hash) r = RIPEMD160(SHA256(r));
 
-	r.unshift(0x6F);
+	r.unshift(0x00);
 
 	var checksum = SHA256(SHA256(r)).slice(0, 4);
 
@@ -122,7 +122,7 @@ btc.pk2adr = function(pk, is_script_hash)
 
 btc.sk2wif = function(sk, uncompressed)
 {
-	var r = [0xef].concat(sk);
+	var r = [0x80].concat(sk);
 	
 	if(!uncompressed) r = r.concat([0x01]);
 
@@ -149,8 +149,8 @@ btc.decode_adr = function(adr)
 
 		var a = { version: ver, type: '', bytes: front.slice(1), checksum: (checksum + '' == back + '') };
 
-		if(ver == 0x6F && len == 25){ a.type = 'standard'; return a; }
-		if(ver == 0xC4 && len == 25){ a.type = 'multisig'; return a; }
+		if(ver == 0x00 && len == 25){ a.type = 'standard'; return a; }
+		if(ver == 0x05 && len == 25){ a.type = 'multisig'; return a; }
 
 		if(ver == 0x80 && len == 37                        ){ a.type = 'wifkey'; a.uncompressed =  true; return a; }
 		if(ver == 0x80 && len == 38 && bytes[len-5] == 0x01){ a.type = 'wifkey'; a.uncompressed = false; return a; }

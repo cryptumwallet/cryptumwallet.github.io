@@ -1,36 +1,123 @@
 <!DOCTYPE HTML>
 <html>
-<head><title>Cryptum TESTNET</title>
+<head><title>Cryptum</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="TSBW: The Simplest Bitcoin Wallet">
 <meta name="keywords" content="tsbw,simple,simplest,online,bitcoin,wallet,btc,js,browser">
 <link rel="shortcut icon" href="favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet"> 
 <style>
-	html, body{ width:100%; height:100%; margin:0; line-height:20px; background:#f5f5f5; }
-	a{ color:#16E; text-decoration:none; cursor:pointer; }
-	a.visited{ color:#16E; }
-	a:hover{ color:red; }
-	input { height:18px; padding:3px 4px; font-size:14px; margin:2px 0; }
-	button{ padding:4px 12px; font-size:14px; }
-	
-	#page{ width:496px; height:264px; position:absolute; top:0; right:0; left:0; bottom:0; margin:auto;  background:#F5F5F5; text-align:center; font-family:arial; font-size:14px; overflow:hidden; }
-	#pass_form, #send_form{ padding:30px; color:#888; text-align:left; display:none; white-space:nowrap; }
-	#pass_form{ text-align:center; display:none; }
-	#passphrase{ width:310px; }
-	
-	#to     { width:268px; }
-	#amount { width: 66px; }
-	#status { color:#777;  }
-	#adr    { font-size:16px; color:#666; }
-	#wif    { font-size:14px; }
-	#balance{ color:#C74; font-size:20px; }
 
-	#close, #made{ position:absolute; color:#BBB; font-family:verdana,arial; }
-	#close:hover { color:#555; }
-	#close       { top:   5px; right:10px; cursor:pointer; }
-	#made        { bottom:6px; right:12px; font-size:13px; text-align:right; }
+html, body{
+     width:100%;
+     height:100%;
+     margin:0;
+     line-height:20px;
+    /*backgroundMAIN*/
+     background:#f5f5f5;
+}
+ a{
+     color:#000;
+     text-decoration:none;
+     cursor:pointer;
+}
+ a.visited{
+     color:#444;
+}
+ a:hover{
+     color:#444;
+}
+ input {
+     height:18px;
+     padding:3px 4px;
+     font-size:14px;
+     margin:2px 0;
+	 border-radius: 6px;
 
-	#hdr{ color: #17f; font-size:16px; font-weight:bold; line-height:42px; background-color:#ffd; background-image:url(icon.png); background-repeat:no-repeat; background-position:8px 8px; }
+}
+ button{
+     padding:4px 12px;
+     font-size:14px;
+	 border-radius: 6px;
+	 font-family: 'Quicksand', sans-serif;
+}
+input[type=text]:focus {
+  background-color: #fff;
+}
+ #page{
+     width:496px;
+     height:244px;
+     position:absolute;
+     top:0;
+     right:0;
+     left:0;
+     bottom:0;
+     margin:auto;
+    /*background color*/
+     background:#f5f5f5;
+     text-align:center;
+     font-family:arial;
+     font-size:14px;
+     overflow:hidden;
+}
+ #pass_form, #send_form{
+     padding:30px;
+    /* bar*/
+     color:#bdbdbd;
+     text-align:left;
+     display:none;
+}
+ #pass_form{
+     text-align:center;
+     display:none;
+	 font-family: 'Quicksand', sans-serif;
+}
+ #passphrase{
+     width:310px;
+	 font-family: 'Quicksand', sans-serif;
+}
+ #to {
+     width:268px;
+}
+ #amount {
+     width: 66px;
+}
+ #status {
+     color:#fff;
+}
+ #adr {
+     font-size:16px;
+     color:#fff;
+}
+ #wif {
+     font-size:14px;
+	 color: #fff;
+}
+ #balance{
+     color:#fff;
+     font-size:20px;
+}
+ #close, #made{
+     position:absolute;
+     color:#BBB;
+     font-family:verdana,arial;
+}
+ #close:hover {
+     color:#fff;
+}
+ #close {
+     top: 5px;
+     right:10px;
+     cursor:pointer;
+}
+ #made {
+     bottom:6px;
+     right:12px;
+     font-size:13px;
+     text-align:right;
+}
 
 </style>
 <script language='JavaScript' type='text/javascript' src='common.js'></script>
@@ -38,17 +125,21 @@
 <script language='JavaScript' type='text/javascript' src='jsbn.js'></script>
 <script language='JavaScript' type='text/javascript' src='elliptic.js'></script>
 <script language='JavaScript' type='text/javascript' src='btc.js'></script>
-<script language='JavaScript' type='text/javascript' src='backend_test.js'></script>
+<script language='JavaScript' type='text/javascript' src='backend_bci.js'></script>
 </head>
 <body>
 
-<div id=page>
 
+
+<div id=page>
 
 <form id=pass_form action="javascript:open_wallet();">
 	<br><input id=passphrase type=password placeholder="Passphrase or private key" title="Can also use compressed WIF key.">&nbsp;<button type=submit>Open</button><br>
-	<br><br><span id=backend></span> 
+	<br><br><span id=backend></span>
+
+	<div style="position:absolute; right:12px; bottom:8px;"> <a href="test/index.html">TestNet</a></div>
 </form>
+
 
 <form id=send_form action="javascript:send_tx();">
 	<span id=adr></span><br><br>
@@ -59,6 +150,8 @@
 </form>
 
 </div>
+
+
 
 
 

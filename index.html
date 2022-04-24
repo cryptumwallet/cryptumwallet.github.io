@@ -3,7 +3,7 @@
 <head><title>Cryptum</title>
 <!--including bogus stuff-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Cryptum Wallet">
+<meta name="description" content="a basic ">
 <meta name="keywords" content="tsbw,simple,simplest,online,bitcoin,wallet,btc,js,browser">
 <link rel="shortcut icon" href="favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +83,7 @@ input[type=text]:focus {
      text-align:center;
      display:none;
 	 font-family: 'Quicksand', sans-serif;
+
 }
 /*the WIF and login box*/
  #passphrase{
@@ -90,6 +91,9 @@ input[type=text]:focus {
 	 height: 40px;
 	 font-family: 'Quicksand', sans-serif;
 	border: 2px solid black;
+}
+input:focus {
+  border: 3px solid #555;
 }
 /*All the bogus after the login page*/
  #to {
@@ -193,11 +197,11 @@ function open_wallet()
 
 	if(!btc.check_entropy(pass))
 	{
-		if(!confirm('This passphrase is weak, are you sure?')){ $('passphrase').value = ''; return; }
+		if(!confirm('This passphrase is weak, are you sure? Make sure to back up this passphrase by writing it down')){ $('passphrase').value = ''; return; }
 	}
 
 	keys = btc.get_keys(pass); if(keys === false){ alert('Bad private key!'); return; }
-
+!confirm('Make sure to back this password up! Write it down on paper and keep that safe. It is you password, there is no way to rEcOvEr the funds');
 	$('pass_form').hide();
 	$('send_form').show();
 	$('to').focus();

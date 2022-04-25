@@ -33,6 +33,16 @@ html, body{
  a:hover{
      color:#444;
 }
+
+a.button{
+     padding:4px 12px;
+     font-size:14px;
+	 width:350px;
+	 height: 40px;
+	 border-radius: px;
+	 font-family: 'Quicksand', sans-serif;
+}
+
 /*text box*/
  input {
      height:18px;
@@ -119,11 +129,11 @@ input:focus {
 }
  #close, #made{
      position:absolute;
-     color:#fff;
+     color:#000;
      font-family:verdana,arial;
 }
  #close:hover {
-     color:#fff;
+     color: #555;
 }
  #close {
      top: 5px;
@@ -164,7 +174,7 @@ input:focus {
 	<span id=balance>Balance: </span><br><br>
 	<input id=to type=text placeholder="Address">&nbsp;<input id=amount type=text placeholder="Amount">&nbsp;<button type=submit>Send</button>
 	<br><br><div id=status></div>
-	<div id=close onclick="location.reload()" title="sign out">X</div>
+	<div id=close onclick="location.reload()" title="sign out">Exit</div>
 </form>
 
 </div>
@@ -181,7 +191,7 @@ function balance_cb(amount)
 {
 	if(isNaN(amount)) amount = '?'; else amount = js.format_money(amount, 8);
 
-	$('balance').innerHTML = "<span title='click to refresh' onclick='refresh(true);' style='cursor:pointer'>Balance: <b id=amt>" + amount + "</b> BTC</span> (<a href='" + backend.adr_page + keys.adr + "' target=_blank rel=\"noopener noreferrer\">transactions</a>)";
+	$('balance').innerHTML = "<span title='click to refresh' onclick='refresh(true);' style='cursor:pointer'>Balance: <b id=amt>" + amount + "</b> BTC</span>";
 }//____________________________________________________________________________
 
 function refresh(set_amount)
@@ -206,7 +216,7 @@ function open_wallet()
 	$('send_form').show();
 	$('to').focus();
 
-	$('adr').innerHTML = "<b style='font-size:16px'>" + keys.adr + "</b>&ndash;[<a href='javascript:show_wif()'>wif</a>]&ndash;<br><span id=wif></span>";
+	$('adr').innerHTML = "<b style='font-size:16px'>" + keys.adr + "<br><a href='javascript:show_wif()' class='button'>Show Private Key</a>&ndash;<br><span id=wif></span>";
 
 	$('status').innerHTML = 'Fee: ' + fee;
 

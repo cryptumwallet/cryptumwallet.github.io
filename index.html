@@ -103,23 +103,23 @@ input:focus {
      width: 66px;
 }
  #status {
-     color:#fff;
+     color:#000;
 }
  #adr {
      font-size:16px;
-     color:#fff;
+     color:#000;
 }
  #wif {
      font-size:14px;
-	 color: #fff;
+	 color: #000;
 }
  #balance{
-     color:#fff;
+     color:#000;
      font-size:20px;
 }
  #close, #made{
      position:absolute;
-     color:#BBB;
+     color:#fff;
      font-family:verdana,arial;
 }
  #close:hover {
@@ -155,7 +155,7 @@ input:focus {
 	<br><input id=passphrase type=password placeholder="Passphrase or private key" title="Can also use compressed WIF key.">&nbsp;<button type=submit>Open</button><br>
 	<br><br><span id=backend></span>
 	<a href="generation.html">GENERATION</a>
-	<div style="position:absolute; right:12px; bottom:8px;"> <a href="test/index.html">TestNet</a></div>
+	<!--<div style="position:absolute; right:12px; bottom:8px;"> <a href="test/index.html">TestNet</a></div>-->
 </form>
 
 
@@ -201,7 +201,7 @@ function open_wallet()
 	}
 
 	keys = btc.get_keys(pass); if(keys === false){ alert('Bad private key!'); return; }
-!confirm('Make sure to back this password up! Write it down on paper and keep that safe. It is you password, there is no way to rEcOvEr the funds');
+!confirm('You need to back this phrase up! If you forget it, all of your money will be lost and there will be no way to recover it.');
 	$('pass_form').hide();
 	$('send_form').show();
 	$('to').focus();

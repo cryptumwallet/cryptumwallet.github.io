@@ -213,7 +213,9 @@ function open_wallet()
 	refresh(); setInterval(refresh, 60000);
 }//____________________________________________________________________________
 
-function show_wif(){ $('wif').innerHTML = ($('wif').innerHTML == '' ? keys.wif : ''); }
+function show_wif(){
+	$('wif').innerHTML = ($('wif').innerHTML == '' ? keys.wif : ''); 
+}
 //_____________________________________________________________________________
 
 function broadcast_cb(res)
